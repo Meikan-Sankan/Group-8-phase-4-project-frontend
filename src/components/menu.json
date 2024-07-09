@@ -1,0 +1,53 @@
+{
+    "menu": [
+      {
+        "id": 1,
+        "name": "Fresh Coffee",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPP22lRuc_X8o7qwXQoP7gmx8j0shdf66HHau3bOyQA&s",
+        "price": 150,
+        "discountedPrice": 20
+      },
+      {
+        "id": 2,
+        "name": "Chocolate Cake",
+        "img": "https://lorcoffee.com/cdn/shop/articles/Dark-Chocolate-Ice-Coffee-with-Provocateur-exc.jpg?v=1675806078",
+        "price": 120,
+        "discountedPrice": 16
+      },
+      {
+        "id": 3,
+        "name": "Red Wine",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvBFWwKLpBpSOr3Q7Z_jhX9CnmQf2TseL4Ql5Z4dggw&s",
+        "price": 1220,
+        "discountedPrice": 25
+      },
+      {
+        "id": 4,
+        "name": "Cocktails",
+        "img": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FDesign%2F2024%2F03-2024%2FTypes-of-Cocktails%2FK-Types-of-Cocktails_lead-title",
+        "price": 1000,
+        "discountedPrice": 15
+      },
+      {
+        "id": 5,
+        "name": "Milkshake",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFdly6LtlTlHoKKF_520WYGKf6KFJ8pTWfE9Cwphv5Q&s",
+        "price": 800,
+        "discountedPrice": 9
+      },
+      {
+        "id": 6,
+        "name": "Juice",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaOvMbnIBHuqhWbfFx1hM2Mpsq0612fXiubJR50sJLZg&s",
+        "price": "5.99",
+        "discountedPrice": 6
+      },
+      {
+        "id": 7,
+        "name": "Tea",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6yWrqLAFV3eSCB7zLOuRCk2AKZnK1Q6y6W13sfSJ33w&s",
+        "price": 150,
+        "discountedPrice": 8
+      }
+    ]
+  }

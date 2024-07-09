@@ -1,0 +1,22 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "name": "Meikan Sankan",
+      "review": "This restraunt is just a world class made up of great foods",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Neema Okello",
+      "review": "This restraunt has alot of good offers for couples and they offer a wide range of foods.",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Erustus Ndegwa",
+      "review": "I have never ever in my life came to a top restraunt like this they have goog meals.",
+      "rating": 4
+    }
+  ]
+}

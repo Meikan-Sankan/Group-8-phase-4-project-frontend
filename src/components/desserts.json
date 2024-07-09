@@ -1,0 +1,85 @@
+{
+  "desserts": [
+    {
+      "id": 1,
+      "name": "Fresh Coffee",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQgOL2dRTm4AMYAXQpuJxQz9BFxll4YZYj0rB_kPmonw&s",
+      "price": 150,
+      "discountedPrice": 10,
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Chocolate Cake",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDu1zInKdlgAWF5qpPFVFaC159lA-XgBqCvpHKGSuOg&s",
+      "price": 200,
+      "discountedPrice": 9,
+      "rating": 4.2
+    },
+{
+      "id": 3,
+      "name": "Redwine",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeAVoRbchLQZBv4ObZq1qGszt4CYSNiCbJtqMQAByUfQ&s",
+      "price": 750,
+      "discountedPrice": 10,
+      "rating": 4.5
+    },
+{
+      "id": 4,
+      "name": "Cocktails",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUeIcMV2pbUcdoPQAcUic3CQAxqvqWyqtL2ruk56Fgzg&s",
+      "price": 600,
+      "discountedPrice": 20,
+      "rating": 5.5
+    },
+{
+      "id": 5,
+      "name": "Milkshake",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSKBpRMD5v22tJlbeO9i2kJEjitGFueafh_vyGKXFn8A&s",
+      "price": "450",
+      "discountedPrice": "9",
+      "rating": 3.5
+    },
+
+{
+      "id": 6,
+      "name": "Juice",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ21kzvtEVFVe63pjgqfUroW-2fLHKjLs2lnR636EPIcw&s",
+      "price": "200",
+      "discountedPrice": "2",
+      "rating": 6.5
+    },
+{
+      "id": 7,
+      "name": "Tea",
+      "img": "https://www.teaforturmeric.com/wp-content/uploads/2021/11/Masala-Chai-Tea-Recipe-Card-500x500.jpg",
+      "price": 150,
+      "discountedPrice": 2,
+      "rating": 4.5
+    },
+ {
+      "id": 8,
+      "name": "Smoothie",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTVvAH5zHcXIhfAwSoE5-8qVlDO8HVDPoiUsF1tpwK4w&s",
+      "price": 100,
+      "discountedPrice": 9,
+      "rating": 4.5
+    },
+{
+      "id": 9,
+      "name": "Hot Chocolate",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXW-nArF_Oj7MKcQ5W6oogd0e0tCx2dQz1nqEE7R2sOA&s",
+      "price": 1500,
+      "discountedPrice": 20,
+      "rating": 4.7
+    },
+  {
+      "id": 10,
+      "name": "Mango juice",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVjVvaKtOvQ4yjDBImf8c0xK9rumQZ_tNZZAc2QhbYA&s",
+      "price": "150",
+      "discountedPrice": 9,
+      "rating": 2.5
+    }
+  ]
+}
