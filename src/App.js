@@ -10,21 +10,47 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
- 
+  const [cartItems, setCartItems] = useState([]);
+  const [likedItems, setLikedItems] = useState([]);
+  const [contactCount, setContactCount] = useState(0);
+
   const handleAddToCart = (item) => {
-    alert('Added item to cart:', item);
+    setCartItems([...cartItems, item]);
+  };
+
+  const handleLike = (item) => {
+    setLikedItems((prevLikedItems) => {
+      if (prevLikedItems.includes(item)) {
+        return prevLikedItems.filter((likedItem) => likedItem !== item);
+      } else {
+        return [...prevLikedItems, item];
+      }
+    });
+  };
+
+  const handleContact = () => {
+    setContactCount(contactCount + 1);
+  };
+
+  const handleCheckout = () => {
+    alert("Proceeding to checkout with items: " + JSON.stringify(cartItems));
+    setCartItems([]);
   };
 
   return (
     <>
-      <Navbar />
+      <Navbar 
+        cartItems={cartItems} 
+        likedItems={likedItems} 
+        contactCount={contactCount}
+        onCheckout={handleCheckout} 
+      />
       <Home />
       <About />
-
       <Menu onAddToCart={handleAddToCart} />
-      <Products />
+      <Products onAddToCart={handleAddToCart} onLike={handleLike} likedItems={likedItems} />
       <Review />
-      <Contact />
+      <Contact onContact={handleContact} />
       <Footer />
     </>
   );

@@ -1,53 +1,146 @@
 {
-    "menu": [
-      {
-        "id": 1,
-        "name": "Fresh Coffee",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPP22lRuc_X8o7qwXQoP7gmx8j0shdf66HHau3bOyQA&s",
-        "price": 150,
-        "discountedPrice": 20
-      },
-      {
-        "id": 2,
-        "name": "Chocolate Cake",
-        "img": "https://lorcoffee.com/cdn/shop/articles/Dark-Chocolate-Ice-Coffee-with-Provocateur-exc.jpg?v=1675806078",
-        "price": 120,
-        "discountedPrice": 16
-      },
-      {
-        "id": 3,
-        "name": "Red Wine",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvBFWwKLpBpSOr3Q7Z_jhX9CnmQf2TseL4Ql5Z4dggw&s",
-        "price": 1220,
-        "discountedPrice": 25
-      },
-      {
-        "id": 4,
-        "name": "Cocktails",
-        "img": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FDesign%2F2024%2F03-2024%2FTypes-of-Cocktails%2FK-Types-of-Cocktails_lead-title",
-        "price": 1000,
-        "discountedPrice": 15
-      },
-      {
-        "id": 5,
-        "name": "Milkshake",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFdly6LtlTlHoKKF_520WYGKf6KFJ8pTWfE9Cwphv5Q&s",
-        "price": 800,
-        "discountedPrice": 9
-      },
-      {
-        "id": 6,
-        "name": "Juice",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaOvMbnIBHuqhWbfFx1hM2Mpsq0612fXiubJR50sJLZg&s",
-        "price": "5.99",
-        "discountedPrice": 6
-      },
-      {
-        "id": 7,
-        "name": "Tea",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6yWrqLAFV3eSCB7zLOuRCk2AKZnK1Q6y6W13sfSJ33w&s",
-        "price": 150,
-        "discountedPrice": 8
-      }
-    ]
+  "menu": [
+  {
+  "id": 1,
+  "name": "Fresh Coffee",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPP22lRuc_X8o7qwXQoP7gmx8j0shdf66HHau3bOyQA&s",
+  "price": 150,
+  "discountedPrice": 20
+  },
+  {
+  "id": 2,
+  "name": "Chocolate Cake",
+  "img": "https://lorcoffee.com/cdn/shop/articles/Dark-Chocolate-Ice-Coffee-with-Provocateur-exc.jpg?v=1675806078",
+  "price": 120,
+  "discountedPrice": 16
+  },
+  {
+  "id": 3,
+  "name": "Red Wine",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvBFWwKLpBpSOr3Q7Z_jhX9CnmQf2TseL4Ql5Z4dggw&s",
+  "price": 1220,
+  "discountedPrice": 25
+  },
+  {
+  "id": 4,
+  "name": "Cocktails",
+  "img": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FDesign%2F2024%2F03-2024%2FTypes-of-Cocktails%2FK-Types-of-Cocktails_lead-title",
+  "price": 1000,
+  "discountedPrice": 15
+  },
+  {
+  "id": 5,
+  "name": "Milkshake",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFdly6LtlTlHoKKF_520WYGKf6KFJ8pTWfE9Cwphv5Q&s",
+  "price": 800,
+  "discountedPrice": 9
+  },
+  {
+  "id": 6,
+  "name": "Juice",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaOvMbnIBHuqhWbfFx1hM2Mpsq0612fXiubJR50sJLZg&s",
+  "price": "5.99",
+  "discountedPrice": 6
+  },
+  {
+  "id": 7,
+  "name": "Tea",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6yWrqLAFV3eSCB7zLOuRCk2AKZnK1Q6y6W13sfSJ33w&s",
+  "price": 150,
+  "discountedPrice": 8
+  },
+  {
+  "id": 8,
+  "name": "Muffin",
+  "img": "https://i0.wp.com/www.brownedbutterblondie.com/wp-content/uploads/2019/01/Espresso-Muffins-BP-Final-REV-3-1.jpg?ssl=1",
+  "price": 200,
+  "discountedPrice": 15
+  },
+  {
+  "id": 9,
+  "name": "Croissant",
+  "img": "https://img.taste.com.au/oOam4a_c/taste/2020/01/jan20_ham-and-cheese-croissant-taste-156328-1.jpg",
+  "price": 180,
+  "discountedPrice": 12
+  },
+  {
+  "id": 10,
+  "name": "Bagel",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS9NJi4eO7FaiXklsDqgsEdbeW0hJwDBLLVw&s",
+  "price": 220,
+  "discountedPrice": 18
+  },
+  {
+  "id": 11,
+  "name": "Smoothie",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNP6I2_0ev8cMjgA4r7MNP4ni2u4NjXK91g&s",
+  "price": 500,
+  "discountedPrice": 30
+  },
+  {
+  "id": 12,
+  "name": "Latte",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSNw7oOeCCCIv_D1ok78I61XqgUl1ZU_S2DA&s",
+  "price": 350,
+  "discountedPrice": 25
+  },
+  {
+  "id": 13,
+  "name": "Espresso",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjx92yzZdMet_jS5hhMrg_tB2l7oulNV7Yew&s",
+  "price": 300,
+  "discountedPrice": 22
+  },
+  {
+  "id": 14,
+  "name": "Cappuccino",
+  "img": "https://www.shutterstock.com/image-photo/fragrant-latte-glass-cup-cinnamon-260nw-95323009.jpg",
+  "price": 400,
+  "discountedPrice": 28
+  },
+  {
+  "id": 15,
+  "name": "Green Tea",
+  "img": "https://draxe.com/wp-content/uploads/2018/09/DrAxeGreenTea_Header.jpg",
+  "price": 120,
+  "discountedPrice": 10
+  },
+  {
+  "id": 16,
+  "name": "Herbal Tea",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ne_NrVBrZe0cAFTceIP6WOnpRwIuCF9HoQ&s",
+  "price": 150,
+  "discountedPrice": 12
+  },
+  {
+  "id": 17,
+  "name": "Iced Coffee",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxT_U8vlnXm5HXcsOMxW7RpQlL_bVWa7kP1g&s",
+  "price": 250,
+  "discountedPrice": 20
+  },
+  {
+  "id": 18,
+  "name": "Iced Tea",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsayq3fjOUcV5H30n-BD6yk0iFPjebwmKSQw&s",
+  "price": 200,
+  "discountedPrice": 18
+  },
+  {
+  "id": 19,
+  "name": "Hot Chocolate",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTByQUz66ixEkb6qz8isQO6okQJ6mdbsFbOg&s",
+  "price": 300,
+  "discountedPrice": 25
+  },
+  {
+  "id": 20,
+  "name": "Biscuit",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvvCxFsHRfZ--XMCbAoSLznRYsv1U-j4Sfsw&s",
+  "price": 100,
+  "discountedPrice": 10
   }
+  ]
+  }
+  
+  

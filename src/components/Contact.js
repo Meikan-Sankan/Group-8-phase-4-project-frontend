@@ -1,29 +1,33 @@
 import React from "react";
 
-const Contact = () => {
+const Contact = ({ onContact }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onContact();
+  };
+
   return (
     <>
-      <section class="contact" id="contact">
-        <h1 class="heading">
+      <section className="contact" id="contact">
+        <h1 className="heading">
           <span>contact</span> us
         </h1>
-        <div class="row">
-
-          <form action="">
+        <div className="row">
+          <form onSubmit={handleSubmit}>
             <h3>get in touch</h3>
-            <div class="inputBox">
-              <span class="fas fa-user"></span>
-              <input type="text" placeholder="name" />
+            <div className="inputBox">
+              <span className="fas fa-user"></span>
+              <input type="text" placeholder="name" required />
             </div>
-            <div class="inputBox">
-              <span class="fas fa-envelope"></span>
-              <input type="email" placeholder="email" />
+            <div className="inputBox">
+              <span className="fas fa-envelope"></span>
+              <input type="email" placeholder="email" required />
             </div>
-            <div class="inputBox">
-              <span class="fas fa-phone"></span>
-              <input type="number" placeholder="number" />
+            <div className="inputBox">
+              <span className="fas fa-phone"></span>
+              <input type="number" placeholder="number" required />
             </div>
-            <input type="submit" value="contact now" class="btn" />
+            <input type="submit" value="contact now" className="btn" />
           </form>
         </div>
       </section>
