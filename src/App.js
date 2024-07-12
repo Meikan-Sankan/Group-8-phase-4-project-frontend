@@ -13,11 +13,11 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [likedItems, setLikedItems] = useState([]);
   const [contactCount, setContactCount] = useState(0);
+  const [contacts, setContacts] = useState([]);
 
   const handleAddToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
-
   const handleLike = (item) => {
     setLikedItems((prevLikedItems) => {
       if (prevLikedItems.includes(item)) {
@@ -28,7 +28,8 @@ const App = () => {
     });
   };
 
-  const handleContact = () => {
+  const handleContact = (contact) => {
+    setContacts([...contacts, contact]);
     setContactCount(contactCount + 1);
   };
 
@@ -37,18 +38,31 @@ const App = () => {
     setCartItems([]);
   };
 
+  const handleCheckoutPrompt = () => {
+    const confirmCheckout = window.confirm("Proceed to checkout?");
+    if (confirmCheckout) {
+      handleCheckout();
+    }
+  };
+
   return (
     <>
       <Navbar 
         cartItems={cartItems} 
         likedItems={likedItems} 
-        contactCount={contactCount}
+        contactCount={contactCount} 
+        contacts={contacts} 
         onCheckout={handleCheckout} 
       />
       <Home />
       <About />
       <Menu onAddToCart={handleAddToCart} />
-      <Products onAddToCart={handleAddToCart} onLike={handleLike} likedItems={likedItems} />
+      <Products 
+        onAddToCart={handleAddToCart} 
+        onLike={handleLike} 
+        likedItems={likedItems} 
+        onCheckoutPrompt={handleCheckoutPrompt} 
+      />
       <Review />
       <Contact onContact={handleContact} />
       <Footer />
@@ -57,3 +71,4 @@ const App = () => {
 };
 
 export default App;
+

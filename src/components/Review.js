@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import qouteImg from "../assets/images/quote-img.png";
-import reviewsData from "./reviews.json";
+import React, { useState, useEffect } from 'react';
+import qouteImg from '../assets/images/quote-img.png';
+import reviewsData from './reviews.json';
 
 const Review = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetching data from reviews.json
+    // Simulating fetching data from reviews.json
+    // Replace with actual fetching logic if needed
     setReviews(reviewsData.reviews);
   }, []);
 

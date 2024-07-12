@@ -9,7 +9,7 @@ const Home = () => {
             fresh <span>food in the </span>morning
           </h3>
           <p>
-          welcome to our bevarage beverage shop
+          welcome to our  Delicacies hub  
           </p>
         </div>
       </section>

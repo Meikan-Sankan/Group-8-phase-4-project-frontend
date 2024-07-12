@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import dessertsData from "./desserts.json";
 
-const Products = ({ onAddToCart, onLike, likedItems }) => {
+const Products = ({ onAddToCart, onLike, likedItems, onCheckoutPrompt, searchTerm }) => {
   const desserts = dessertsData.desserts;
+  const refs = useRef([]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const index = desserts.findIndex(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      if (index !== -1 && refs.current[index]) {
+        refs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        refs.current[index].classList.add('highlight');
+        setTimeout(() => {
+          refs.current[index].classList.remove('highlight');
+        }, 3000);
+      }
+    }
+  }, [searchTerm, desserts]);
 
   const handleAddToCart = (item) => {
     onAddToCart(item);
@@ -10,6 +24,7 @@ const Products = ({ onAddToCart, onLike, likedItems }) => {
 
   const handleLike = (item) => {
     onLike(item);
+    onCheckoutPrompt();
   };
 
   return (
@@ -18,8 +33,13 @@ const Products = ({ onAddToCart, onLike, likedItems }) => {
         Our <span>Desserts</span>
       </h1>
       <div className="box-container">
-        {desserts.map((dessert) => (
-          <div className="box" key={dessert.id}>
+        {desserts.map((dessert, index) => (
+          <div
+            className="box"
+            key={dessert.id}
+            id={`product-item-${dessert.id}`}
+            ref={el => refs.current[index] = el}
+          >
             <div className="icons">
               <a href="#" className="fas fa-shopping-cart" onClick={() => handleAddToCart(dessert)}></a>
               <a href="#" className={`fas fa-heart ${likedItems.includes(dessert) ? 'liked' : ''}`} onClick={() => handleLike(dessert)}></a>
