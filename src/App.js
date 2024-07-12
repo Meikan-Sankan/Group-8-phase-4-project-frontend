@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from "react";
 import "./assets/css/style.css";
 import Navbar from "./components/Navbar";
@@ -14,10 +15,12 @@ const App = () => {
   const [likedItems, setLikedItems] = useState([]);
   const [contactCount, setContactCount] = useState(0);
   const [contacts, setContacts] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleAddToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
+
   const handleLike = (item) => {
     setLikedItems((prevLikedItems) => {
       if (prevLikedItems.includes(item)) {
@@ -45,14 +48,20 @@ const App = () => {
     }
   };
 
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <>
+    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <Navbar 
         cartItems={cartItems} 
         likedItems={likedItems} 
         contactCount={contactCount} 
         contacts={contacts} 
         onCheckout={handleCheckout} 
+        isDarkMode={isDarkMode}
+        toggleTheme={toggleTheme}
       />
       <Home />
       <About />
@@ -66,9 +75,8 @@ const App = () => {
       <Review />
       <Contact onContact={handleContact} />
       <Footer />
-    </>
+    </div>
   );
 };
 
 export default App;
-

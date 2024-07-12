@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Modal from "./Modal";
 
-const Navbar = ({ cartItems, likedItems, contactCount, contacts, onCheckout }) => {
+const Navbar = ({ cartItems, likedItems, contactCount, contacts, onCheckout, isDarkMode, toggleTheme }) => {
   const navbarRef = useRef();
   const searchRef = useRef();
   const cartRef = useRef();
@@ -68,6 +68,14 @@ const Navbar = ({ cartItems, likedItems, contactCount, contacts, onCheckout }) =
           </a>
         </nav>
         <div className="icons">
+          {/* Toggle theme icon */}
+          <div className="icon" id="theme-toggle" onClick={toggleTheme} role="button" tabIndex="0">
+            {isDarkMode ? (
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbIZvUqnScwHtkNVnF4RtohX3PbZTqoFQ_Pg&s" alt="Dark Mode" />
+            ) : (
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY26aTGKPoJBvo3bgP5W8aEgxQhG5r3VGkeQ&s" alt="Light Mode" />
+            )}
+          </div>
           <div
             className="icon"
             id="search-btn"

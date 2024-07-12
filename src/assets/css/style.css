@@ -1281,3 +1281,94 @@ body {
   margin-right: 10px;
 }
 /* Example dark mode styles */
+/* Define styles for light and dark themes */
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Default background color */
+  color: #333; /* Default text color */
+}
+
+.dark-mode {
+  background-color: #333; /* Dark mode background color */
+  color: #fff; /* Dark mode text color */
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-handle {
+  margin-left: 0.5rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff6600; /* Hover color */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-item-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
