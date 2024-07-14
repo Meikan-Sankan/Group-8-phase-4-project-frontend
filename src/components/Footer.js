@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <section class="footer">
-        <div class="share">
+      <section className="footer">
+        <div className="share">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fab fa-twitter"></a>
           <a href="#" class="fab fa-instagram"></a>
