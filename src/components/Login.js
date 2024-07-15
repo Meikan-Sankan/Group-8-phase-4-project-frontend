@@ -1,43 +1,48 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
+const Login = ({ onLogin, error }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email: username,  // Assuming your backend expects 'email' instead of 'username'
+      const response = await axios.post('http://localhost:5000/login', {
+        email: email.toLowerCase(),
         password
       });
-      const token = response.data.access_token;  // Assuming your backend returns 'access_token'
-      onLogin(token);
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError('Invalid credentials. Please try again.');
+
+      const token = response.data.access_token;
+      if (token) {
+        setSuccess('Login successful!');
+        onLogin({ email, password });
+        setEmail('');
+        setPassword('');
+        navigate('/');
       } else {
-        setError('Login failed. Please try again later.');  // Generic error message for other errors
+        setSuccess('');
       }
+    } catch (error) {
+      console.error('Login failed:', error);
     }
   };
 
   return (
     <>
       <section className="login">
-        <h1 className="heading">
-          Login
-        </h1>
+        <h1 className="heading">Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="inputBox">
             <input 
               type="text" 
-              placeholder="Username" 
+              placeholder="Email" 
               required 
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
             />
           </div>
           <div className="inputBox">
@@ -50,7 +55,13 @@ const Login = ({ onLogin }) => {
             />
           </div>
           {error && <p className="error">{error}</p>}
-          <input type="submit" value="Login" className="btn" />
+          {success && <p className="success">{success}</p>}
+          <div className="inputBox">
+            <button type="submit" className="btn">Login</button>
+          </div>
+          <div className="inputBox">
+            <p>Don't have an account? <Link to="/register">Register</Link></p>
+          </div>
         </form>
       </section>
     </>

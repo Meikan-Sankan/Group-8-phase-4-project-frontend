@@ -69,3 +69,4 @@ const Products = ({ onAddToCart, onLike, likedItems, onCheckoutPrompt, searchTer
 };
 
 export default Products;
+
