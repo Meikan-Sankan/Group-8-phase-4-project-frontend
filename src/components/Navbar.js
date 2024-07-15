@@ -10,13 +10,14 @@ const Navbar = ({
   onCheckout,
   isDarkMode,
   toggleTheme,
+  onSearch,
   onLogout,
   isAuthenticated,
 }) => {
   const navbarRef = useRef();
   const searchRef = useRef();
   const cartRef = useRef();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook for navigation
 
   const [isHeartModalOpen, setHeartModalOpen] = useState(false);
   const [isMessageModalOpen, setMessageModalOpen] = useState(false);
@@ -49,77 +50,77 @@ const Navbar = ({
   const handleLogout = () => {
     localStorage.removeItem("token");
     onLogout();
-    navigate("/login");
+    navigate("/login"); // Navigate to login page after logout
   };
 
   return (
     <>
       <header className="header">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx2HqipxvFWcg1vwTRY1s7DenIsV2RK9cE1A&s"
             alt="Delicacies Hub"
           />
           <span className="project-handle">Delicacies Hub</span>
-        </a>
+        </Link>
         <nav className="navbar" ref={navbarRef}>
-          <a href="#home">
+          <Link to="/" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2d3TV8_YZhiMGAO9DCa5isUw6AK0o9ddq4A&s"
               alt="Home"
               className="nav-icon"
             />
             HOME
-          </a>
-          <a href="#about">
+          </Link>
+          <Link to="/about" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIugHu_Ha2ELTgbaIcPCJ6mxISjnpabFd7og&s"
               alt="About"
               className="nav-icon"
             />
             ABOUT
-          </a>
-          <a href="#menu">
+          </Link>
+          <Link to="/menu" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFOI3wNVFQIZIhWqrrmoR0cFxT9LSCd8TilQ&s"
               alt="Menu"
               className="nav-icon"
             />
             MENU
-          </a>
-          <a href="#products">
+          </Link>
+          <Link to="/products" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9-Iuu1IyILgixFhrPldHxP6bmDGjk38ZCw&s"
               alt="Desserts"
               className="nav-icon"
             />
             PRODUCTS
-          </a>
-          <a href="#review">
+          </Link>
+          <Link to="/review" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCOsX32l5w2TSbzsndlLvQCwRA7CgpiCcX_g&s"
               alt="Review"
               className="nav-icon"
             />
             REVIEW
-          </a>
-          <a href="#contact">
+          </Link>
+          <Link to="/contact" onClick={navbarHandler}>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmGeRiuzmYScbj0hnVpZHQl0xR5bOpJ0LF3w&s"
               alt="Contact"
               className="nav-icon"
             />
             CONTACT
-          </a>
+          </Link>
           {isAuthenticated ? (
-            <a href="#logout" onClick={handleLogout}>
+            <Link to="#logout" onClick={handleLogout}>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png"
                 alt="Logout"
                 className="nav-icon"
               />
               LOGOUT
-            </a>
+            </Link>
           ) : (
             <Link to="/login">
               <img
@@ -224,6 +225,7 @@ const Navbar = ({
             id="search-box"
             placeholder="search here..."
             aria-label="Search Box"
+            onChange={(e) => onSearch(e.target.value)}
           />
           <label htmlFor="search-box" className="fas fa-search"></label>
         </div>
@@ -251,14 +253,7 @@ const Navbar = ({
         <Modal onClose={() => setHeartModalOpen(false)} title="Liked Items">
           <ul>
             {likedItems.map((item, index) => (
-              <li key={index}>
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="like-item-img"
-                />
-                {item.name} - Ksh.{item.price}
-              </li>
+              <li key={index}>{item.name}</li>
             ))}
           </ul>
         </Modal>
@@ -268,7 +263,7 @@ const Navbar = ({
         <Modal onClose={() => setMessageModalOpen(false)} title="Contacts">
           <ul>
             {contacts.map((contact, index) => (
-              <li key={index}>{contact}</li>
+              <li key={index}>{contact.name}</li>
             ))}
           </ul>
         </Modal>

@@ -7,7 +7,6 @@ const Review = () => {
 
   useEffect(() => {
     // Simulating fetching data from reviews.json
-    // Replace with actual fetching logic if needed
     setReviews(reviewsData.reviews);
   }, []);
 

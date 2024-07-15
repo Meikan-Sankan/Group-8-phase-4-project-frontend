@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import menuData from "./menu.json";
+import menuData from "./menu.json"; // Import JSON data
+import { Link } from "react-router-dom";
 
 const Menu = ({ onAddToCart, searchTerm }) => {
   const menuItems = Array.isArray(menuData.menu) ? menuData.menu : [];
@@ -7,7 +8,9 @@ const Menu = ({ onAddToCart, searchTerm }) => {
 
   useEffect(() => {
     if (searchTerm) {
-      const index = menuItems.findIndex(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      const index = menuItems.findIndex(item =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
       if (index !== -1 && refs.current[index]) {
         refs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
         refs.current[index].classList.add('highlight');
@@ -40,11 +43,14 @@ const Menu = ({ onAddToCart, searchTerm }) => {
               <img src={item.img} alt={item.name} />
               <h3>{item.name}</h3>
               <div className="price">
-                ksh:{item.price} <span>ksh:{item.discountedPrice}</span>
+                $ {item.price} <span>$ {item.discountedPrice}</span>
               </div>
               <button className="btn" onClick={() => handleAddToCart(item)}>
                 Add to Cart
               </button>
+              <Link to="/menu" className="nav-link">
+                View Details
+              </Link>
             </div>
           ))}
         </div>

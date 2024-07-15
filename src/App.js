@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./assets/css/style.css";
 import Navbar from "./components/Navbar";
@@ -10,7 +10,7 @@ import Review from "./components/Review";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import Register from './components/Register'; // Import your Register component
+import Register from './components/Register';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -56,17 +56,21 @@ const App = () => {
   };
 
   const handleSearch = (query) => {
-    const productElements = productsRef.current.querySelectorAll(".product-item");
-    productElements.forEach((element) => {
-      if (element.textContent.toLowerCase().includes(query.toLowerCase())) {
-        element.scrollIntoView({ behavior: "smooth" });
-        element.classList.add("highlight");
-        setTimeout(() => {
-          element.classList.remove("highlight");
-        }, 2000);
-      }
-    });
+    if (productsRef.current) {
+      const productElements = productsRef.current.querySelectorAll(".box");
+      productElements.forEach((element) => {
+        const productName = element.querySelector("h3").textContent.toLowerCase();
+        if (productName.includes(query.toLowerCase())) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          element.classList.add("highlight");
+          setTimeout(() => {
+            element.classList.remove("highlight");
+          }, 2000);
+        }
+      });
+    }
   };
+  
 
   return (
     <Router>
@@ -98,8 +102,10 @@ const App = () => {
               </div>
             }
           />
+          <Route path="/review" element={<Review />} />
+          <Route path="/contact" element={<Contact onContact={handleContact} />} />
           <Route path="/login" element={<Login onLogin={() => {}} />} />
-          <Route path="/register" element={<Register onRegister={() => {}} />} /> {/* Define route for "/register" */}
+          <Route path="/register" element={<Register onRegister={() => {}} />} />
         </Routes>
         <Footer />
       </div>
