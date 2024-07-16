@@ -73,7 +73,6 @@ const App = () => {
   };
 
   const handleLogin = ({ email, password }) => {
-    // Simulate login logic
     setIsLoggedIn(true);
   };
 
@@ -128,7 +127,7 @@ const AppContent = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!isLoggedIn && window.location.pathname !== "/register") {
       navigate("/login");
     }
   }, [isLoggedIn, navigate]);
