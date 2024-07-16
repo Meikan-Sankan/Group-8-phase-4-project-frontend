@@ -58,7 +58,7 @@ const Products = ({ onAddToCart, searchTerm }) => {
               <div className="content">
                 <h3>{dessert.name}</h3>
                 <div className="price">
-                  $ {dessert.price} <span>$ {dessert.discountedPrice}</span>
+                  Ksh {dessert.price} <span>Ksh {dessert.discountedPrice}</span>
                 </div>
                 <button className="btn" onClick={() => handleAddToCart(dessert)}>
                   Add to Cart

@@ -3,7 +3,7 @@
   {
   "id": 1,
   "name": "Fresh Coffee",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQgOL2dRTm4AMYAXQpuJxQz9BFxll4YZYj0rB_kPmonw&s",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjgHbj2E_AlP5yPIkYZZGT1tMLxUqCN2E0Rw&s",
   "price": 150,
   "discountedPrice": 10,
   "rating": 4.5
@@ -11,7 +11,7 @@
   {
   "id": 2,
   "name": "Chocolate Cake",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDu1zInKdlgAWF5qpPFVFaC159lA-XgBqCvpHKGSuOg&s",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1v5wc0IZtwmuqimhjQ1vE7FDq-Gon8U7PMQ&s",
   "price": 200,
   "discountedPrice": 9,
   "rating": 4.2
@@ -19,7 +19,7 @@
   {
   "id": 3,
   "name": "Redwine",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeAVoRbchLQZBv4ObZq1qGszt4CYSNiCbJtqMQAByUfQ&s",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5PnzPqpg2dCaDp-BToLbYFm2seoZV17yixg&s",
   "price": 750,
   "discountedPrice": 10,
   "rating": 4.5
@@ -43,7 +43,7 @@
   {
   "id": 6,
   "name": "Juice",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ21kzvtEVFVe63pjgqfUroW-2fLHKjLs2lnR636EPIcw&s",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiObQ2JzIYozGhi_p3OPYTSwp9Ud3N44vTzw&s",
   "price": 200,
   "discountedPrice": 2,
   "rating": 6.5
@@ -59,7 +59,7 @@
   {
   "id": 8,
   "name": "Smoothie",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTVvAH5zHcXIhfAwSoE5-8qVlDO8HVDPoiUsF1tpwK4w&s",
+  "img": "https://abeautifulmess.com/wp-content/uploads/2023/04/chocolate-smoothie-recipe.--scaled.jpg",
   "price": 100,
   "discountedPrice": 9,
   "rating": 4.5
@@ -131,7 +131,7 @@
   {
   "id": 17,
   "name": "Macaron",
-  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFKAF1bgPtdBFV6YnHhMD2HnM1KJQScSEohA&s",
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmzBk5yH0lLYiAHBI_Qz-t-XdpBdoS6rW65Q&s",
   "price": 200,
   "discountedPrice": 4,
   "rating": 4.6

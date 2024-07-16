@@ -38,12 +38,12 @@ const Menu = ({ onAddToCart, searchTerm }) => {
               className="box"
               key={item.id}
               id={`menu-item-${item.id}`}
-              ref={el => refs.current[index] = el}
+              ref={el => (refs.current[index] = el)}
             >
               <img src={item.img} alt={item.name} />
               <h3>{item.name}</h3>
               <div className="price">
-                $ {item.price} <span>$ {item.discountedPrice}</span>
+                Ksh {item.price} <span>Ksh {item.discountedPrice}</span>
               </div>
               <button className="btn" onClick={() => handleAddToCart(item)}>
                 Add to Cart
