@@ -1,0 +1,93 @@
+/* login.css */
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('https://img.freepik.com/free-vector/hand-drawn-recipes-youtube-thumbnail_23-2148937349.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1720915200&semt=ais_user') no-repeat center center/cover; /* Replace with your image URL */
+    color: #fff;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  
+  form {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .inputBox {
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputBox input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .inputBox input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .success {
+    color: #2ecc71;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #3498db;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .btn:hover {
+    background: #2980b9;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    color: #fff;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #2980b9;
+  }
+  
