@@ -4,13 +4,15 @@ const Contact = ({ onContact }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [comment, setComment] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onContact({ name, email, phone });
+    onContact({ name, email, phone, comment });
     setName('');
     setEmail('');
     setPhone('');
+    setComment('');
   };
 
   return (
@@ -50,6 +52,15 @@ const Contact = ({ onContact }) => {
                 required 
                 value={phone} 
                 onChange={(e) => setPhone(e.target.value)} 
+              />
+            </div>
+            <div className="inputBox">
+              <span className="fas fa-comment"></span>
+              <textarea 
+                placeholder="comment" 
+                required 
+                value={comment} 
+                onChange={(e) => setComment(e.target.value)} 
               />
             </div>
             <input type="submit" value="contact now" className="btn" />

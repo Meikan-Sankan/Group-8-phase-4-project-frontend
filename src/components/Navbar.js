@@ -263,7 +263,12 @@ const Navbar = ({
         <Modal onClose={() => setMessageModalOpen(false)} title="Contacts">
           <ul>
             {contacts.map((contact, index) => (
-              <li key={index}>{contact.name}</li>
+              <li key={index}>
+                <p>Name: {contact.name}</p>
+                <p>Email: {contact.email}</p>
+                <p>Phone: {contact.phone}</p>
+                <p>Comment: {contact.comment}</p>
+              </li>
             ))}
           </ul>
         </Modal>
