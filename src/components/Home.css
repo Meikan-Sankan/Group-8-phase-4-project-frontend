@@ -1,0 +1,30 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; /* Adjust padding for spacing */
+  }
+  
+  .intro-text {
+    text-align: center;
+    margin-bottom: 20px; /* Space between text and carousel */
+  }
+  
+  .carousel-container {
+    width: 100%; /* Full width for carousel */
+    max-width: 800px; /* Adjust maximum width as needed */
+  }
+  
+  .carousel .slider-wrapper {
+    overflow: visible; /* Ensure images are fully visible */
+  }
+  
+  .carousel .slide {
+    background: none; /* Remove default background */
+  }
+  
+  .carousel-image {
+    width: 100%; /* Full width for images */
+    max-height: 400px; /* Limit max height for uniformity */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
