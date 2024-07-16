@@ -11,6 +11,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from './components/Register';
+import AdminLogin from './components/AdminLogin';
+import AdminPage from './components/AdminPage';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -19,6 +21,7 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const productsRef = useRef();
 
   const handleAddToCart = (item) => {
@@ -57,19 +60,7 @@ const App = () => {
   };
 
   const handleSearch = (query) => {
-    if (productsRef.current) {
-      const productElements = productsRef.current.querySelectorAll(".box");
-      productElements.forEach((element) => {
-        const productName = element.querySelector("h3").textContent.toLowerCase();
-        if (productName.includes(query.toLowerCase())) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-          element.classList.add("highlight");
-          setTimeout(() => {
-            element.classList.remove("highlight");
-          }, 2000);
-        }
-      });
-    }
+    setSearchTerm(query);
   };
 
   const handleLogin = ({ email, password }) => {
@@ -100,6 +91,7 @@ const App = () => {
         handleLogin={handleLogin}
         handleLogout={handleLogout}
         setIsLoggedIn={setIsLoggedIn}
+        searchTerm={searchTerm}
       />
     </Router>
   );
@@ -123,11 +115,12 @@ const AppContent = ({
   handleLogin,
   handleLogout,
   setIsLoggedIn,
+  searchTerm,
 }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn && window.location.pathname !== "/register") {
+    if (!isLoggedIn && window.location.pathname !== "/register" && window.location.pathname !== "/admin/login") {
       navigate("/login");
     }
   }, [isLoggedIn, navigate]);
@@ -148,16 +141,14 @@ const AppContent = ({
       <Routes>
         <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu onAddToCart={handleAddToCart} />} />
+        <Route path="/menu" element={<Menu onAddToCart={handleAddToCart} searchTerm={searchTerm} />} />
         <Route
           path="/products"
           element={
             <div ref={productsRef}>
               <Products
                 onAddToCart={handleAddToCart}
-                onLike={handleLike}
-                likedItems={likedItems}
-                onCheckoutPrompt={handleCheckoutPrompt}
+                searchTerm={searchTerm}
               />
             </div>
           }
@@ -166,6 +157,8 @@ const AppContent = ({
         <Route path="/contact" element={<Contact onContact={handleContact} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register onRegister={() => setIsLoggedIn(true)} />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
     </div>

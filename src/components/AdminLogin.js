@@ -1,40 +1,35 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './login.css'; // Import the CSS file
 
-const Login = ({ onLogin, error }) => {
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post('http://localhost:5000/admin/login', {
         email: email.toLowerCase(),
         password
       });
 
       const token = response.data.access_token;
       if (token) {
-        setSuccess('Login successful!');
-        onLogin({ email, password });
-        setEmail('');
-        setPassword('');
-        navigate('/');
+        navigate('/admin');
       } else {
-        setSuccess('');
+        setError('Invalid credentials');
       }
     } catch (error) {
-      console.error('Login failed:', error);
+      setError('Login failed');
     }
   };
 
   return (
     <section className="login">
-      <h1 className="heading">Login</h1>
+      <h1 className="heading">Admin Login</h1>
       <form onSubmit={handleSubmit}>
         <div className="inputBox">
           <input 
@@ -55,17 +50,12 @@ const Login = ({ onLogin, error }) => {
           />
         </div>
         {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
         <div className="inputBox">
           <button type="submit" className="btn">Login</button>
-        </div>
-        <div className="inputBox">
-          <p>Don't have an account? <Link to="/register">Register</Link></p>
-          <p>Admin Login: <Link to="/admin/login">Admin Login</Link></p>
         </div>
       </form>
     </section>
   );
 };
 
-export default Login;
+export default AdminLogin;
