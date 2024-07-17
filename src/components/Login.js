@@ -9,11 +9,15 @@ const Login = ({ onLogin, error }) => {
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value.toLowerCase());
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/login', {
-        email: email.toLowerCase(),
+        email,
         password
       });
 
@@ -42,7 +46,7 @@ const Login = ({ onLogin, error }) => {
             placeholder="Email" 
             required 
             value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+            onChange={handleEmailChange} 
           />
         </div>
         <div className="inputBox">
