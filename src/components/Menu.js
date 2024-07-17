@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import menuData from "./menu.json"; // Import JSON data
 import { Link } from "react-router-dom";
 
 const Menu = ({ onAddToCart, searchTerm }) => {
   const menuItems = Array.isArray(menuData.menu) ? menuData.menu : [];
   const refs = useRef([]);
+  const [likedItems, setLikedItems] = useState([]);
 
   useEffect(() => {
     if (searchTerm) {
@@ -25,6 +26,16 @@ const Menu = ({ onAddToCart, searchTerm }) => {
     onAddToCart(item);
   };
 
+  const handleLike = (id) => {
+    setLikedItems(prevLikedItems => {
+      if (prevLikedItems.includes(id)) {
+        return prevLikedItems.filter(itemId => itemId !== id);
+      } else {
+        return [...prevLikedItems, id];
+      }
+    });
+  };
+
   return (
     <>
       <section className="menu" id="menu">
@@ -35,7 +46,7 @@ const Menu = ({ onAddToCart, searchTerm }) => {
         <div className="box-container">
           {menuItems.map((item, index) => (
             <div
-              className="box"
+              className={`box ${likedItems.includes(item.id) ? 'liked' : ''}`}
               key={item.id}
               id={`menu-item-${item.id}`}
               ref={el => (refs.current[index] = el)}
@@ -47,6 +58,12 @@ const Menu = ({ onAddToCart, searchTerm }) => {
               </div>
               <button className="btn" onClick={() => handleAddToCart(item)}>
                 Add to Cart
+              </button>
+              <button
+                className={`like-btn ${likedItems.includes(item.id) ? 'liked' : ''}`}
+                onClick={() => handleLike(item.id)}
+              >
+                {likedItems.includes(item.id) ? 'Unlike' : 'Like'}
               </button>
               <Link to="/menu" className="nav-link">
                 View Details

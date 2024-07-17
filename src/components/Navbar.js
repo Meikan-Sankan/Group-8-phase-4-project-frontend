@@ -203,7 +203,7 @@ const Navbar = ({
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHOdDNxOnbcJeZ-QTdx3XPZ5PtEydi2rRHeA&s"
               alt="Likes"
             />
-            <span className="like-count">{likedItems.length}</span>
+            <span className="like-count">{likedItems ? likedItems.length : 0}</span>
           </div>
           <div
             className="icon"

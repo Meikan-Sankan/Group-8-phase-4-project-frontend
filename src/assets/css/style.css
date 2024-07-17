@@ -1410,3 +1410,23 @@ body {
 .highlight {
   background-color: yellow;
 }
+/* Add this to your CSS file */
+
+.highlight {
+  background-color: yellow; /* Example highlight color */
+}
+
+.like-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.like-btn.liked {
+  color: red; /* Example liked color */
+}
+
+.liked {
+  border: 2px solid red; /* Example border color for liked items */
+}

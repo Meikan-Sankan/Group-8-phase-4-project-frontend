@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import dessertsData from "./desserts.json";
 
 const Products = ({ onAddToCart, searchTerm }) => {
   const desserts = dessertsData.desserts;
   const refs = useRef([]);
+  const [likedItems, setLikedItems] = useState([]);
 
   useEffect(() => {
     if (searchTerm && refs.current.length > 0) {
@@ -36,6 +37,16 @@ const Products = ({ onAddToCart, searchTerm }) => {
     onAddToCart(item);
   };
 
+  const handleLike = (id) => {
+    setLikedItems(prevLikedItems => {
+      if (prevLikedItems.includes(id)) {
+        return prevLikedItems.filter(itemId => itemId !== id);
+      } else {
+        return [...prevLikedItems, id];
+      }
+    });
+  };
+
   return (
     <section className="products" id="products">
       <h1 className="heading">
@@ -47,7 +58,7 @@ const Products = ({ onAddToCart, searchTerm }) => {
 
           return (
             <div
-              className="box"
+              className={`box ${likedItems.includes(dessert.id) ? 'liked' : ''}`}
               key={dessert.id}
               id={`product-item-${dessert.id}`}
               ref={refs.current[index]}
@@ -62,6 +73,12 @@ const Products = ({ onAddToCart, searchTerm }) => {
                 </div>
                 <button className="btn" onClick={() => handleAddToCart(dessert)}>
                   Add to Cart
+                </button>
+                <button
+                  className={`like-btn ${likedItems.includes(dessert.id) ? 'liked' : ''}`}
+                  onClick={() => handleLike(dessert.id)}
+                >
+                  {likedItems.includes(dessert.id) ? 'Unlike' : 'Like'}
                 </button>
               </div>
             </div>
