@@ -1,0 +1,46 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top:100px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.card-text {
+  color: #555;
+  margin: 10px 0;
+}
+
+.card-price {
+  color: #e91e63;
+  font-weight: bold;
+  margin: 10px 0 0;
+}

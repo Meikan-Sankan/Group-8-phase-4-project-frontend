@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import qouteImg from '../assets/images/quote-img.png';
-import reviewsData from './reviews.json';
+
 
 const Review = () => {
   const [reviews, setReviews] = useState([]);

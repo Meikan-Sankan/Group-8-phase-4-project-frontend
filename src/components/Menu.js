@@ -1,78 +1,43 @@
-import React, { useRef, useEffect, useState } from "react";
-import menuData from "./menu.json"; // Import JSON data
-import { Link } from "react-router-dom";
-
-const Menu = ({ onAddToCart, searchTerm }) => {
-  const menuItems = Array.isArray(menuData.menu) ? menuData.menu : [];
-  const refs = useRef([]);
-  const [likedItems, setLikedItems] = useState([]);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Menu.css'; 
+const Menu = () => {
+  const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (searchTerm) {
-      const index = menuItems.findIndex(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      if (index !== -1 && refs.current[index]) {
-        refs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        refs.current[index].classList.add('highlight');
-        setTimeout(() => {
-          refs.current[index].classList.remove('highlight');
-        }, 3000);
+    // Fetch food data from backend
+    const fetchFoodData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/foods'); // Adjust the URL as needed
+        setFoods(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
       }
-    }
-  }, [searchTerm, menuItems]);
+    };
 
-  const handleAddToCart = (item) => {
-    onAddToCart(item);
-  };
+    fetchFoodData();
+  }, []);
 
-  const handleLike = (id) => {
-    setLikedItems(prevLikedItems => {
-      if (prevLikedItems.includes(id)) {
-        return prevLikedItems.filter(itemId => itemId !== id);
-      } else {
-        return [...prevLikedItems, id];
-      }
-    });
-  };
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-      <section className="menu" id="menu">
-        <h1 className="heading">
-          Our <span>Menu</span>
-        </h1>
-
-        <div className="box-container">
-          {menuItems.map((item, index) => (
-            <div
-              className={`box ${likedItems.includes(item.id) ? 'liked' : ''}`}
-              key={item.id}
-              id={`menu-item-${item.id}`}
-              ref={el => (refs.current[index] = el)}
-            >
-              <img src={item.img} alt={item.name} />
-              <h3>{item.name}</h3>
-              <div className="price">
-                Ksh {item.price} <span>Ksh {item.discountedPrice}</span>
-              </div>
-              <button className="btn" onClick={() => handleAddToCart(item)}>
-                Add to Cart
-              </button>
-              <button
-                className={`like-btn ${likedItems.includes(item.id) ? 'liked' : ''}`}
-                onClick={() => handleLike(item.id)}
-              >
-                {likedItems.includes(item.id) ? 'Unlike' : 'Like'}
-              </button>
-              <Link to="/menu" className="nav-link">
-                View Details
-              </Link>
-            </div>
-          ))}
+    <div className="menu">
+      {foods.map(food => (
+        <div key={food.id} className="card">
+          <img src={food.image} alt={food.name} className="card-img" />
+          <div className="card-body">
+            <h5 className="card-title">{food.name}</h5>
+            <p className="card-text">{food.description}</p>
+            <p className="card-price">ksh:{food.price.toFixed(2)}</p>
+          </div>
         </div>
-      </section>
-    </>
+      ))}
+    </div>
   );
 };
 

@@ -1,5 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import React, {
+  useState,
+  useRef,
+  useEffect
+} from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import "./assets/css/style.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -10,9 +19,9 @@ import Review from "./components/Review";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import Register from './components/Register';
-import AdminLogin from './components/AdminLogin';
-import AdminPage from './components/AdminPage';
+import Register from "./components/Register";
+import AdminLogin from "./components/AdminLogin";
+import AdminPage from "./components/AdminPage";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -63,7 +72,10 @@ const App = () => {
     setSearchTerm(query);
   };
 
-  const handleLogin = ({ email, password }) => {
+  const handleLogin = ({
+    email,
+    password
+  }) => {
     setIsLoggedIn(true);
   };
 
@@ -71,98 +83,220 @@ const App = () => {
     setIsLoggedIn(false);
   };
 
-  return (
-    <Router>
-      <AppContent
-        isLoggedIn={isLoggedIn}
-        isDarkMode={isDarkMode}
-        cartItems={cartItems}
-        likedItems={likedItems}
-        contactCount={contactCount}
-        contacts={contacts}
-        productsRef={productsRef}
-        toggleTheme={toggleTheme}
-        handleAddToCart={handleAddToCart}
-        handleLike={handleLike}
-        handleContact={handleContact}
-        handleCheckout={handleCheckout}
-        handleCheckoutPrompt={handleCheckoutPrompt}
-        handleSearch={handleSearch}
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        setIsLoggedIn={setIsLoggedIn}
-        searchTerm={searchTerm}
-      />
-    </Router>
+  return ( <
+    Router >
+    <
+    AppContent isLoggedIn = {
+      isLoggedIn
+    }
+    isDarkMode = {
+      isDarkMode
+    }
+    cartItems = {
+      cartItems
+    }
+    likedItems = {
+      likedItems
+    }
+    contactCount = {
+      contactCount
+    }
+    contacts = {
+      contacts
+    }
+    productsRef = {
+      productsRef
+    }
+    toggleTheme = {
+      toggleTheme
+    }
+    handleAddToCart = {
+      handleAddToCart
+    }
+    handleLike = {
+      handleLike
+    }
+    handleContact = {
+      handleContact
+    }
+    handleCheckout = {
+      handleCheckout
+    }
+    handleCheckoutPrompt = {
+      handleCheckoutPrompt
+    }
+    handleSearch = {
+      handleSearch
+    }
+    handleLogin = {
+      handleLogin
+    }
+    handleLogout = {
+      handleLogout
+    }
+    setIsLoggedIn = {
+      setIsLoggedIn
+    }
+    searchTerm = {
+      searchTerm
+    }
+    /> <
+    /Router>
   );
 };
 
 const AppContent = ({
-  isLoggedIn,
-  isDarkMode,
-  cartItems,
-  likedItems,
-  contactCount,
-  contacts,
-  productsRef,
-  toggleTheme,
-  handleAddToCart,
-  handleLike,
-  handleContact,
-  handleCheckout,
-  handleCheckoutPrompt,
-  handleSearch,
-  handleLogin,
-  handleLogout,
-  setIsLoggedIn,
-  searchTerm,
-}) => {
-  const navigate = useNavigate();
+    isLoggedIn,
+    isDarkMode,
+    cartItems,
+    likedItems,
+    contactCount,
+    contacts,
+    productsRef,
+    toggleTheme,
+    handleAddToCart,
+    handleLike,
+    handleContact,
+    handleCheckout,
+    handleCheckoutPrompt,
+    handleSearch,
+    handleLogin,
+    handleLogout,
+    setIsLoggedIn,
+    searchTerm,
+  }) => {
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isLoggedIn && window.location.pathname !== "/register" && window.location.pathname !== "/admin/login") {
-      navigate("/login");
-    }
-  }, [isLoggedIn, navigate]);
+    useEffect(() => {
+      const adminToken = localStorage.getItem("adminToken");
+      if (adminToken) {
+        setIsLoggedIn(true);
+      }
+    }, []);
 
-  return (
-    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
-      <Navbar 
-        cartItems={cartItems} 
-        likedItems={likedItems} 
-        contactCount={contactCount} 
-        contacts={contacts} 
-        onCheckout={handleCheckout} 
-        isDarkMode={isDarkMode}
-        toggleTheme={toggleTheme}
-        onSearch={handleSearch}
-        onLogout={handleLogout}
-      />
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu onAddToCart={handleAddToCart} searchTerm={searchTerm} />} />
-        <Route
-          path="/products"
-          element={
-            <div ref={productsRef}>
-              <Products
-                onAddToCart={handleAddToCart}
-                searchTerm={searchTerm}
-              />
-            </div>
+    useEffect(() => {
+      if (!isLoggedIn && window.location.pathname !== "/register" && window.location.pathname !== "/admin/login") {
+        navigate("/login");
+      }
+    }, [isLoggedIn, navigate]);
+
+    return ( <
+        div className = {
+          isDarkMode ? "dark-mode" : "light-mode"
+        } >
+        <
+        Navbar cartItems = {
+          cartItems
+        }
+        likedItems = {
+          likedItems
+        }
+        contactCount = {
+          contactCount
+        }
+        contacts = {
+          contacts
+        }
+        onCheckout = {
+          handleCheckout
+        }
+        isDarkMode = {
+          isDarkMode
+        }
+        toggleTheme = {
+          toggleTheme
+        }
+        onSearch = {
+          handleSearch
+        }
+        onLogout = {
+          handleLogout
+        }
+        /> <
+        Routes >
+        <
+        Route path = "/"
+        element = {
+          isLoggedIn ? < Home / > : < Login onLogin = {
+            handleLogin
           }
-        />
-        <Route path="/review" element={<Review />} />
-        <Route path="/contact" element={<Contact onContact={handleContact} />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/register" element={<Register onRegister={() => setIsLoggedIn(true)} />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
-};
+          />} / >
+          <
+          Route path = "/about"
+          element = {
+            < About / >
+          }
+          /> <
+          Route path = "/menu"
+          element = {
+            < Menu onAddToCart = {
+              handleAddToCart
+            }
+            searchTerm = {
+              searchTerm
+            }
+            />} / >
+            <
+            Route
+            path = "/products"
+            element = {
+              <
+              div ref = {
+                productsRef
+              } >
+              <
+              Products
+              onAddToCart = {
+                handleAddToCart
+              }
+              searchTerm = {
+                searchTerm
+              }
+              /> <
+              /div>
+            }
+            /> <
+            Route path = "/review"
+            element = {
+              < Review / >
+            }
+            /> <
+            Route path = "/contact"
+            element = {
+              < Contact onContact = {
+                handleContact
+              }
+              />} / >
+              <
+              Route path = "/login"
+              element = {
+                < Login onLogin = {
+                  handleLogin
+                }
+                />} / >
+                <
+                Route path = "/register"
+                element = {
+                  < Register onRegister = {
+                    () => setIsLoggedIn(true)
+                  }
+                  />} / >
+                  <
+                  Route path = "/admin/login"
+                  element = {
+                    < AdminLogin / >
+                  }
+                  /> <
+                  Route path = "/admin"
+                  element = {
+                    < AdminPage / >
+                  }
+                  /> <
+                  /Routes> <
+                  Footer / >
+                  <
+                  /div>
+                );
+              };
 
-export default App;
+              export default App;

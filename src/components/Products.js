@@ -1,92 +1,47 @@
-import React, { useRef, useEffect, useState } from "react";
-import dessertsData from "./desserts.json";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Product.css"; // Import your CSS file for styling
 
-const Products = ({ onAddToCart, searchTerm }) => {
-  const desserts = dessertsData.desserts;
-  const refs = useRef([]);
-  const [likedItems, setLikedItems] = useState([]);
+const Product = () => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (searchTerm && refs.current.length > 0) {
-      const index = desserts.findIndex(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      if (index !== -1 && refs.current[index] && refs.current[index].current) {
-        refs.current[index].current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    fetchProducts();
+  }, []);
 
-        refs.current.forEach(ref => {
-          if (ref.current) {
-            ref.current.classList.remove('highlight');
-          }
-        });
-        setTimeout(() => {
-          if (refs.current[index] && refs.current[index].current) {
-            refs.current[index].current.classList.add('highlight');
-            setTimeout(() => {
-              if (refs.current[index] && refs.current[index].current) {
-                refs.current[index].current.classList.remove('highlight');
-              }
-            }, 2000);
-          }
-        }, 50);
-      }
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/products"); // Adjust the URL as needed
+      console.log("Products data:", response.data); // Log the response data for debugging
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      setError("Error fetching products. Please try again later.");
     }
-  }, [searchTerm, desserts]);
-
-  const handleAddToCart = (item) => {
-    onAddToCart(item);
-  };
-
-  const handleLike = (id) => {
-    setLikedItems(prevLikedItems => {
-      if (prevLikedItems.includes(id)) {
-        return prevLikedItems.filter(itemId => itemId !== id);
-      } else {
-        return [...prevLikedItems, id];
-      }
-    });
   };
 
   return (
-    <section className="products" id="products">
-      <h1 className="heading">
-        Our <span>Desserts</span>
-      </h1>
-      <div className="box-container">
-        {desserts.map((dessert, index) => {
-          refs.current[index] = useRef(null); // Initialize ref for each dessert
-
-          return (
-            <div
-              className={`box ${likedItems.includes(dessert.id) ? 'liked' : ''}`}
-              key={dessert.id}
-              id={`product-item-${dessert.id}`}
-              ref={refs.current[index]}
-            >
-              <div className="image">
-                <img src={dessert.img} alt={dessert.name} />
+    <div className="product-container">
+      <h2>Products</h2>
+      {error ? (
+        <p className="error-message">{error}</p>
+      ) : (
+        <ul className="product-list">
+          {products.map((product) => (
+            <li key={product.id} className="product-item">
+              <div className="product-details">
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <p>Price: ${product.price}</p>
+                <img src={product.image} alt={product.name} className="product-image" />
               </div>
-              <div className="content">
-                <h3>{dessert.name}</h3>
-                <div className="price">
-                  Ksh {dessert.price} <span>Ksh {dessert.discountedPrice}</span>
-                </div>
-                <button className="btn" onClick={() => handleAddToCart(dessert)}>
-                  Add to Cart
-                </button>
-                <button
-                  className={`like-btn ${likedItems.includes(dessert.id) ? 'liked' : ''}`}
-                  onClick={() => handleLike(dessert.id)}
-                >
-                  {likedItems.includes(dessert.id) ? 'Unlike' : 'Like'}
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
-export default Products;
+export default Product;
