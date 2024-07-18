@@ -1,8 +1,10 @@
+/* Product.css */
+
 .product-container {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #f80505;
+  background-color: hsl(22, 96%, 50%);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
@@ -22,7 +24,7 @@
   align-items: center;
   margin-bottom: 20px;
   padding: 15px;
-  background-color: #420ce6;
+  background-color: #0c0b0c;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
@@ -63,44 +65,6 @@
 
 .product-image:hover {
   transform: scale(1.05);
-}
-
-.cart-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #38f509;
-  color: #420ce6;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cart-button:hover {
-  background-color: #2cbf07;
-}
-
-.checkout-button {
-  padding: 10px 20px;
-  margin-top: 20px;
-  background-color: #38f509;
-  color: #420ce6;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.checkout-button:hover {
-  background-color: #2cbf07;
-}
-
-.cart {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #420ce6;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .error-message {
